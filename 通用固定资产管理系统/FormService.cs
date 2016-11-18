@@ -56,5 +56,14 @@ namespace 通用固定资产管理系统
                 }
             }
         }
+        /// <summary>
+        /// 单机节点事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+
+        }
     }
 }
