@@ -179,7 +179,10 @@ this.Predict_date,this.NowDate,this.Predict_money,this.Money,this.Company,this.C
 
         public bool Update()
         {
-            throw new NotImplementedException();
+            string StrSql = string.Format(@"UPDATE [dbo].[Borrow]   SET [F_proID] = '{0}',[Borrow_sum] = '{1}',[Borrow_Date] = '{2}',[Predict_date] = '{3}',[NowDate] = '{4}'
+,[Predict_money] = '{5}',[Money] = '{6}',[Company] = '{7}',[CustomerID] = '{8}',[Detail] = '{9}' WHERE ID='{10}'",
+this.F_proID,this.Borrow_sum,this.Borrow_Date,this.Predict_date,this.NowDate,this.Predict_money,this.Money,this.Company,this.CustomerID,this.Detail,this.BorrowID);
+            return SqlDBHelper.ExecuteNonQuery(StrSql);
         }
 
         public bool Delete(string id)

@@ -54,6 +54,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.F_proID_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Borrow_sum_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Borrow_Date_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Predict_date_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NowDate_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Predict_money_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Money_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Company_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerID_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Detail_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -296,6 +307,18 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.F_proID_Name,
+            this.Borrow_sum_Name,
+            this.Borrow_Date_Name,
+            this.Predict_date_Name,
+            this.NowDate_Name,
+            this.Predict_money_Name,
+            this.Money_Name,
+            this.Company_Name,
+            this.CustomerID_Name,
+            this.Detail_Name});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
@@ -305,6 +328,83 @@
             this.dataGridView1.Size = new System.Drawing.Size(523, 225);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "租借编号";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // F_proID_Name
+            // 
+            this.F_proID_Name.DataPropertyName = "F_proID";
+            this.F_proID_Name.HeaderText = "资产编号";
+            this.F_proID_Name.Name = "F_proID_Name";
+            this.F_proID_Name.ReadOnly = true;
+            // 
+            // Borrow_sum_Name
+            // 
+            this.Borrow_sum_Name.DataPropertyName = "Borrow_sum";
+            this.Borrow_sum_Name.HeaderText = "租借数量";
+            this.Borrow_sum_Name.Name = "Borrow_sum_Name";
+            this.Borrow_sum_Name.ReadOnly = true;
+            // 
+            // Borrow_Date_Name
+            // 
+            this.Borrow_Date_Name.DataPropertyName = "Borrow_Date";
+            this.Borrow_Date_Name.HeaderText = "租借日期";
+            this.Borrow_Date_Name.Name = "Borrow_Date_Name";
+            this.Borrow_Date_Name.ReadOnly = true;
+            // 
+            // Predict_date_Name
+            // 
+            this.Predict_date_Name.DataPropertyName = "Predict_date";
+            this.Predict_date_Name.HeaderText = "预期借还日期";
+            this.Predict_date_Name.Name = "Predict_date_Name";
+            this.Predict_date_Name.ReadOnly = true;
+            // 
+            // NowDate_Name
+            // 
+            this.NowDate_Name.DataPropertyName = "NowDate";
+            this.NowDate_Name.HeaderText = "实际完修日期";
+            this.NowDate_Name.Name = "NowDate_Name";
+            this.NowDate_Name.ReadOnly = true;
+            // 
+            // Predict_money_Name
+            // 
+            this.Predict_money_Name.DataPropertyName = "Predict_money";
+            this.Predict_money_Name.HeaderText = "预计收益";
+            this.Predict_money_Name.Name = "Predict_money_Name";
+            this.Predict_money_Name.ReadOnly = true;
+            // 
+            // Money_Name
+            // 
+            this.Money_Name.DataPropertyName = "Money";
+            this.Money_Name.HeaderText = "实际收益";
+            this.Money_Name.Name = "Money_Name";
+            this.Money_Name.ReadOnly = true;
+            // 
+            // Company_Name
+            // 
+            this.Company_Name.DataPropertyName = "Company";
+            this.Company_Name.HeaderText = "租借公司";
+            this.Company_Name.Name = "Company_Name";
+            this.Company_Name.ReadOnly = true;
+            // 
+            // CustomerID_Name
+            // 
+            this.CustomerID_Name.DataPropertyName = "CustomerID";
+            this.CustomerID_Name.HeaderText = "经办人";
+            this.CustomerID_Name.Name = "CustomerID_Name";
+            this.CustomerID_Name.ReadOnly = true;
+            // 
+            // Detail_Name
+            // 
+            this.Detail_Name.DataPropertyName = "Detail";
+            this.Detail_Name.HeaderText = "说明";
+            this.Detail_Name.Name = "Detail_Name";
+            this.Detail_Name.ReadOnly = true;
             // 
             // FormBorrow
             // 
@@ -353,5 +453,16 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn F_proID_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Borrow_sum_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Borrow_Date_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Predict_date_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NowDate_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Predict_money_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Money_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Company_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Detail_Name;
     }
 }

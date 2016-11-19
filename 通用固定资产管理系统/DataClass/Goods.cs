@@ -454,14 +454,12 @@ namespace 通用固定资产管理系统.NewFolder1
             string StrSql = "select * from Repertory";
             return SqlDBHelper.GetDataTable(StrSql);
         }
-
         public DataTable ItemLoad(string id)
         {
             string StrSql = @"select F_proID,GoodsID,GoodsName,SumOld,CalssName,OldInfo,Type,MakeName,OldMonth,IntoDate,RepName,Sub_Month,DepName,State,Month_Money,AddType,Quantity ,JingCanZhi,OrderUnit,Price,Detail,Money,Pro_value
  from Goods,Department,PropertyClass,Repertory where Goods.DepID=Department.DepID and Goods.ClassID=PropertyClass.ClassID and Repertory.RepID=Goods.RepID and GoodsName='" + id + "'";
             return SqlDBHelper.GetDataTable(StrSql);
         }
-
         public DataTable BorrowLoad(string id)
         {
             string StrSql = "select F_proID from Goods where GoodsName='" + id + "'";
@@ -491,11 +489,16 @@ GoodsName = '{0}'", id);
 
             return SqlDBHelper.GetDataTable(StrSql);
         }
+        /// <summary>
+        /// 加载FormBorrow窗体的DATATable表格
+        /// </summary>
+        /// <returns></returns>
         public DataTable dataBorrowLoad()
         {
-            string StrSql = @"select ID,borrow.F_proID,GoodsName,PropertyClass.CalssName,Borrow_sum,NowDate,Borrow_Date,Predict_date,Predict_money,borrow.Money,Company,CustomerID,borrow.Detail     
+            string StrSql = @"select ID,borrow.F_proID,GoodsName,PropertyClass.CalssName,Borrow_sum,NowDate,Borrow_Date,Predict_date,Predict_money,borrow.Money,Company,CustomerID,borrow.Detail
  from Borrow, Goods, PropertyClass where borrow.F_proID = Goods.F_proID and PropertyClass.ClassID = Goods.ClassID";
             return SqlDBHelper.GetDataTable(StrSql);
         }
+       
     }
 }
