@@ -16,7 +16,7 @@ namespace 通用固定资产管理系统
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormBorrow());
+            Application.Run(new FormService());
         }
     }
 }

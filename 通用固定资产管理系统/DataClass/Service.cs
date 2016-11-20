@@ -12,7 +12,7 @@ namespace 通用固定资产管理系统.NewFolder1
     /// <summary>
     /// 固定资产维修表
     /// </summary>
-    class Service:IDAO
+    class Service : IDAO
     {
         private int serviceID;
         private string f_proID;
@@ -20,7 +20,7 @@ namespace 通用固定资产管理系统.NewFolder1
         private string service_Date;
         private string predict_date;
         private string nowDate;
-        private float  cost;
+        private float cost;
         private float nowCost;
         private string company;
         private string breakdown;
@@ -209,7 +209,11 @@ namespace 通用固定资产管理系统.NewFolder1
 
         public bool Add()
         {
-            throw new NotImplementedException();
+            string StrSql = string.Format(@"INSERT INTO Service ([F_proID],[Service_sum],[Service_Date],[Predict_date],[NowDate],[Cost],[NowCost],[Company]
+,[Breakdown],[Service_txt],[Detail])VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')",
+this.F_proID, this.Service_sum, this.Service_Date, this.Predict_date, this.NowDate, this.Cost, this.NowCost, this.Company,
+this.Breakdown, this.Service_txt, this.Detail);
+            return SqlDBHelper.ExecuteNonQuery(StrSql);
         }
 
         public bool Update()
@@ -224,12 +228,33 @@ namespace 通用固定资产管理系统.NewFolder1
 
         public DataTable SelectListByWhere(string strWhere)
         {
-            throw new NotImplementedException();
+            string StrSql = "select * from Service";
+            return SqlDBHelper.GetDataTable(StrSql);
         }
 
         public void SelectModelById(string id)
         {
             throw new NotImplementedException();
+        }
+        public DataTable ServiceLoad(string id)
+        {
+            string StrSql = @"select ID,GoodsName,CalssName,Service_sum,Service_Date,Predict_date,NowDate,Cost,NowCost,Company,Breakdown,Service_txt,Service.Detail
+ from Service,Goods,PropertyClass where Goods.F_proID=Service.F_proID and PropertyClass.ClassID=Goods.ClassID";
+            DataTable dt = SqlDBHelper.GetDataTable(StrSql);
+            foreach (DataRow item in dt.Rows)
+            {
+                if (id == item["CalssName"].ToString())
+                {
+                    StrSql = @"select ID,GoodsName,CalssName,Service_sum,Service_Date,Predict_date,NowDate,Cost,NowCost,Company,Breakdown,Service_txt,Service.Detail
+ from Service, Goods, PropertyClass where Goods.F_proID = Service.F_proID and PropertyClass.ClassID = Goods.ClassID and CalssName='" + id + "'";
+                }
+                else
+                {
+                    StrSql = @"select ID,GoodsName,CalssName,Service_sum,Service_Date,Predict_date,NowDate,Cost,NowCost,Company,Breakdown,Service_txt,Service.Detail
+ from Service, Goods, PropertyClass where Goods.F_proID = Service.F_proID and PropertyClass.ClassID = Goods.ClassID and GoodsName='" + id + "'";
+                }
+            }
+            return SqlDBHelper.GetDataTable(StrSql);
         }
     }
 }

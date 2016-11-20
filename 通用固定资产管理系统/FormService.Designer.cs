@@ -30,12 +30,12 @@
         {
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Service_sum = new System.Windows.Forms.TextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.Predict_date = new System.Windows.Forms.DateTimePicker();
             this.NowDate = new System.Windows.Forms.DateTimePicker();
             this.Service_Date = new System.Windows.Forms.DateTimePicker();
-            this.Service_sum = new System.Windows.Forms.TextBox();
             this.Company = new System.Windows.Forms.TextBox();
             this.Detail = new System.Windows.Forms.TextBox();
             this.Breakdown = new System.Windows.Forms.TextBox();
@@ -71,12 +71,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.Service_sum);
+            this.groupBox1.Controls.Add(this.btnUpdate);
+            this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.Predict_date);
             this.groupBox1.Controls.Add(this.NowDate);
             this.groupBox1.Controls.Add(this.Service_Date);
-            this.groupBox1.Controls.Add(this.Service_sum);
             this.groupBox1.Controls.Add(this.Company);
             this.groupBox1.Controls.Add(this.Detail);
             this.groupBox1.Controls.Add(this.Breakdown);
@@ -101,23 +101,31 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // button2
+            // Service_sum
             // 
-            this.button2.Location = new System.Drawing.Point(516, 138);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(61, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "接收";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Service_sum.Location = new System.Drawing.Point(254, 14);
+            this.Service_sum.Name = "Service_sum";
+            this.Service_sum.Size = new System.Drawing.Size(63, 21);
+            this.Service_sum.TabIndex = 5;
             // 
-            // button1
+            // btnUpdate
             // 
-            this.button1.Location = new System.Drawing.Point(436, 138);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(58, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "送修";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnUpdate.Location = new System.Drawing.Point(516, 138);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(61, 23);
+            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.Text = "接收";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(436, 138);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(58, 23);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "送修";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // Predict_date
             // 
@@ -128,6 +136,7 @@
             // 
             // NowDate
             // 
+            this.NowDate.Enabled = false;
             this.NowDate.Location = new System.Drawing.Point(278, 47);
             this.NowDate.Name = "NowDate";
             this.NowDate.Size = new System.Drawing.Size(102, 21);
@@ -139,13 +148,6 @@
             this.Service_Date.Name = "Service_Date";
             this.Service_Date.Size = new System.Drawing.Size(195, 21);
             this.Service_Date.TabIndex = 2;
-            // 
-            // Service_sum
-            // 
-            this.Service_sum.Location = new System.Drawing.Point(254, 14);
-            this.Service_sum.Name = "Service_sum";
-            this.Service_sum.Size = new System.Drawing.Size(63, 21);
-            this.Service_sum.TabIndex = 1;
             // 
             // Company
             // 
@@ -193,6 +195,7 @@
             // 
             this.F_proID.Location = new System.Drawing.Point(65, 14);
             this.F_proID.Name = "F_proID";
+            this.F_proID.ReadOnly = true;
             this.F_proID.Size = new System.Drawing.Size(124, 21);
             this.F_proID.TabIndex = 1;
             // 
@@ -306,13 +309,16 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(577, 223);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // FormService
@@ -351,12 +357,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DateTimePicker Predict_date;
         private System.Windows.Forms.DateTimePicker NowDate;
         private System.Windows.Forms.DateTimePicker Service_Date;
-        private System.Windows.Forms.TextBox Service_sum;
         private System.Windows.Forms.TextBox Company;
         private System.Windows.Forms.TextBox Detail;
         private System.Windows.Forms.TextBox Breakdown;
@@ -364,5 +369,6 @@
         private System.Windows.Forms.TextBox Service_txt;
         private System.Windows.Forms.TextBox NowCost;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox Service_sum;
     }
 }
