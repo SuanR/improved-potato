@@ -485,8 +485,6 @@ CalssName = '{0}'", id);
 GoodsName = '{0}'", id);
                 }
             }
-
-
             return SqlDBHelper.GetDataTable(StrSql);
         }
         /// <summary>

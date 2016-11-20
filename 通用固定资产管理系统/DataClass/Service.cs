@@ -256,5 +256,10 @@ this.Breakdown, this.Service_txt, this.Detail);
             }
             return SqlDBHelper.GetDataTable(StrSql);
         }
+        public DataTable dateCilct(string date, string deta)
+        {
+            string StrSql = " select * from Service where NowDate>'" + date + "' and NowDate<'" + deta + "'";
+            return SqlDBHelper.GetDataTable(StrSql);
+        }
     }
 }

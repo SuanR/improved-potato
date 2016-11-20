@@ -202,5 +202,10 @@ namespace 通用固定资产管理系统.NewFolder1
         {
             throw new NotImplementedException();
         }
+        public DataTable dateCilct(string date, string deta)
+        {
+            string StrSql = " select * from ReduceGoods where NowDate>'" + date + "' and NowDate<'" + deta + "'";
+            return SqlDBHelper.GetDataTable(StrSql);
+        }
     }
 }

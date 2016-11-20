@@ -192,12 +192,21 @@ this.F_proID,this.Borrow_sum,this.Borrow_Date,this.Predict_date,this.NowDate,thi
 
         public DataTable SelectListByWhere(string strWhere)
         {
-            throw new NotImplementedException();
+            string StrSql = " select * from Borrow";
+            return SqlDBHelper.GetDataTable(StrSql);
         }
 
         public void SelectModelById(string id)
         {
             throw new NotImplementedException();
+        }
+        /// <summary>
+        /// 按时间搜索
+        /// </summary>
+        public DataTable dateCilct(string date,string deta)
+        {
+            string StrSql = " select * from Borrow where NowDate>'"+date+ "' and NowDate<'"+deta+"'";
+            return SqlDBHelper.GetDataTable(StrSql);
         }
     }
 }
